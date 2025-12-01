@@ -1,0 +1,47 @@
+<body>
+    <div id="game-container">
+        
+        <section id="intro-screen" class="game-screen active">
+            <h1>LOADING...</h1>
+            <h2 id="loading-text">Conectando Player 2...</h2>
+            <button id="intro-button" class="pixel-button hidden-button">
+                PRESS START
+            </button>
+            <p class="footer-text">Aguarde o carregamento do mapa...</p>
+        </section>
+
+        <section id="quest-screen" class="game-screen hidden">
+            <h1>NOVO JOGO?</h1>
+            <h2>Player 1 te faz uma pergunta importante:</h2>
+            
+            <div id="quest-box">
+                <p>Olhe para ele</p>
+            </div>
+            
+            <button id="quest-button" class="pixel-button">
+                SIM! (Aceitar)
+            </button>
+            <p class="footer-text">v2.0 - A.P.I - Amor Por Isabela </p>
+        </section>
+
+        <section id="content-screen" class="game-screen hidden">
+            <h1 class="text-effect">FIM DE FASE!</h1>
+            
+            <div id="message-box">
+                <p>SUCESSO! Novo status: NAMORADOS!</p>
+                <p>Essa é a melhor *conquista* que eu poderia desbloquear! Eu te amo muito!</p>
+                <p>Nossa aventura começou há:</p>
+                
+                <div id="countdown-timer">
+                    0 dias, 0 horas, 0 minutos, 0 segundos
+                </div>
+            </div>
+            
+            <button id="back-button" class="pixel-button">
+                < Explorar o Mapa de Novo!
+            </button>
+        </section>
+
+    </div>
+    <script src="script.js"></script>
+</body>
