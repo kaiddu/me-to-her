@@ -1,7 +1,10 @@
 
 body {
-    background-color: #F0F8FF; 
-    color: #6A5ACD; 
+    background-image: url('https://wallpapers.com/images/featured/fundo-estetico-de-pixel-art-0ax4fopcqzot21lj.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
     font-family: 'Press Start 2P', cursive; 
     display: flex;
     justify-content: center;
@@ -118,4 +121,5 @@ p {
 
 #back-button {
     display: none !important; 
+
 
