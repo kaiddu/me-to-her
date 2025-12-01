@@ -2,7 +2,7 @@
 body {
     background-color: #F0F8FF; 
     color: #6A5ACD; 
-    font-family: 'Pixel', cursive;
+    font-family: 'Press Start 2P', cursive;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,3 +96,4 @@ p {
     background-color: rgba(255, 250, 250, 0.95);
     color: #483D8B; 
 }
+
