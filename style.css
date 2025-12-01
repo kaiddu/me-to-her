@@ -2,7 +2,7 @@
 body {
     background-color: #F0F8FF; 
     color: #6A5ACD; 
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Press Start 2P', cursive; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,25 +18,23 @@ body {
     border: 8px solid #9370DB; 
     box-shadow: 0 0 15px rgba(147, 112, 219, 0.9); 
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.9); 
     min-height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
+
 .game-screen {
-    display: none;
+    display: none; 
     padding: 20px;
 }
 
 .game-screen.active {
-    display: block;
+    display: block; 
 }
 
-.game-screen.hidden {
-    display: none;
-}
 
 h1 {
     font-size: 1.5rem;
@@ -59,13 +57,13 @@ p {
 .footer-text {
     font-size: 0.5rem;
     margin-top: 30px;
-    color: #B0C4DE;
+    color: #B0C4DE; 
 }
 
 
 .pixel-button {
     font-family: 'Press Start 2P', cursive;
-    background-color: #ADD8E6; 
+    background-color: #ADD8E6;
     color: #483D8B; 
     border: 4px solid #8A2BE2; 
     padding: 15px 30px;
@@ -78,7 +76,7 @@ p {
 }
 
 .pixel-button:hover {
-    background-color: #B0E0E6; 
+    background-color: #B0E0E6;
     box-shadow: 2px 2px 0 #6A5ACD;
 }
 
@@ -88,12 +86,31 @@ p {
     transform: translate(2px, 2px);
 }
 
+.hidden-button {
+    opacity: 0; 
+    pointer-events: none;
+}
+
+#quest-box {
+    border: 3px solid #DA70D6; 
+    padding: 15px;
+    margin: 20px auto;
+    background-color: rgba(255, 250, 250, 0.95);
+    color: #483D8B;
+    max-width: 80%;
+}
+
 #message-box {
     text-align: left;
-    border: 3px solid #DA70D6;
+    border: 3px solid #DA70D6; 
     padding: 15px;
     margin: 20px 0;
     background-color: rgba(255, 250, 250, 0.95);
     color: #483D8B; 
 }
 
+#countdown-timer {
+    font-size: 0.8rem;
+    margin-top: 15px;
+    color: #FF69B4; 
+}
