@@ -121,6 +121,27 @@ p {
 
 #back-button {
     display: none !important; 
+    
+#qr-code-container {
+    margin-top: 30px;
+    padding: 10px;
+    border: 3px dashed #FF69B4; 
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+#qrcode-img {
+    width: 100%; 
+    max-width: 150px;
+    height: auto;
+    border: 2px solid #9370DB; 
+    image-rendering: pixelated;
+}
+
+.qr-text {
+    font-size: 0.7rem;
+    margin-top: 10px;
+    color: #483D8B;
+}
 
 
 
