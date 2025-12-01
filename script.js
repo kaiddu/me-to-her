@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. selecao
+    
     const introScreen = document.getElementById('intro-screen');
     const questScreen = document.getElementById('quest-screen');
     const contentScreen = document.getElementById('content-screen');
@@ -10,43 +10,53 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadingText = document.getElementById('loading-text');
     const timerDisplay = document.getElementById('countdown-timer');
 
+ 
     let startTime = localStorage.getItem('namoroStartTime');
     let loadingInterval = null; 
 
-    // funcoes
+    
 
+    
     function startQuest() {
         introScreen.classList.remove('active');
         questScreen.classList.add('active');
     }
 
+    
     function startGame() {
+        
         if (!startTime) {
             startTime = new Date().getTime(); 
             localStorage.setItem('namoroStartTime', startTime); 
         }
         
+        
         questScreen.classList.remove('active');
         contentScreen.classList.add('active');
 
+        
         setInterval(updateTimer, 1000); 
     }
 
+    
     function checkExistingGame() {
         if (startTime) {
             if (loadingInterval) {
                 clearInterval(loadingInterval);
             }
             
+            
             introScreen.classList.remove('active');
             questScreen.classList.remove('active');
             contentScreen.classList.add('active');
+            
             
             setInterval(updateTimer, 1000); 
             return true; 
         }
         return false; 
     }
+    
     
     function updateTimer() {
         const startTimestamp = new Date(parseInt(startTime)); 
@@ -67,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     }
     
-    // efeito
+    
     function startLoadingEffect() {
         let dots = 0;
         loadingInterval = setInterval(() => {
@@ -75,28 +85,27 @@ document.addEventListener('DOMContentLoaded', () => {
             loadingText.innerHTML = `Conectando ao Player 2${'.'.repeat(dots)}`;
         }, 500); 
 
-        // revelacao
+        
         setTimeout(() => {
             if (!startTime) { 
                 clearInterval(loadingInterval); 
                 loadingText.innerHTML = "CARREGAMENTO COMPLETO.";
 
-                // remove os bgl
                 introButton.classList.remove('hidden-button');
                 introButton.style.opacity = 1; 
                 introButton.style.pointerEvents = 'auto'; 
             }
-        }, 3000); // <- espera
+        }, 3000); 
     }
     
-    // inicializacao
+    
 
-    // 1. verificando
+    
     if (!checkExistingGame()) {
-        startLoadingEffect(); // primeira vez
+        startLoadingEffect(); 
     }
 
-    // msm coisa
+  
     if (introButton) {
         introButton.addEventListener('click', startQuest);
     }
@@ -105,8 +114,10 @@ document.addEventListener('DOMContentLoaded', () => {
         questButton.addEventListener('click', startGame);
     }
 
+    
     if (backButton) {
         backButton.addEventListener('click', () => {
+           
              window.location.reload(); 
         });
     }
