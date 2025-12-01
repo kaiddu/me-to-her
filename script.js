@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Seleção dos Elementos
     const introScreen = document.getElementById('intro-screen');
     const questScreen = document.getElementById('quest-screen');
     const contentScreen = document.getElementById('content-screen');
@@ -10,29 +9,62 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadingText = document.getElementById('loading-text');
     const timerDisplay = document.getElementById('countdown-timer');
 
-    let startTime = null; 
+
+    let startTime = localStorage.getItem('namoroStartTime');
     let loadingInterval = null; 
+
 
     function startQuest() {
         introScreen.classList.remove('active');
         questScreen.classList.add('active');
-       
+    }
+
     function startGame() {
-      
-        startTime = new Date(); 
-        
+
+        if (!startTime) {
+            startTime = new Date().getTime(); 
+            localStorage.setItem('namoroStartTime', startTime);**
+        }
+     
         questScreen.classList.remove('active');
         contentScreen.classList.add('active');
 
         setInterval(updateTimer, 1000); 
     }
 
-    function returnToMenu() {
-        contentScreen.classList.remove('active');
-        questScreen.classList.add('active');
+    function checkExistingGame() {
+        if (startTime) {
+            clearInterval(loadingInterval);
+            introScreen.classList.remove('active');
+            questScreen.classList.remove('active');
+            contentScreen.classList.add('active');
+            
+            setInterval(updateTimer, 1000); 
+            return true;
+        }
+        return false;
     }
     
+    function updateTimer() {
+        const startTimestamp = new Date(parseInt(startTime)); 
+        const now = new Date();
+        const difference = now.getTime() - startTimestamp.getTime(); 
 
+        const totalSeconds = Math.floor(difference / 1000);
+        const days = Math.floor(totalSeconds / (60 * 60 * 24));
+        const hours = Math.floor((totalSeconds % (60 * 60 * 24)) / (60 * 60));
+        const minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
+        const seconds = Math.floor(totalSeconds % 60);
+
+    
+        timerDisplay.innerHTML = `
+            ${days} dias, 
+            ${hours} horas, 
+            ${minutes} minutos, 
+            ${seconds} segundos
+        `;
+    }
+  
     function startLoadingEffect() {
         let dots = 0;
         loadingInterval = setInterval(() => {
@@ -40,45 +72,23 @@ document.addEventListener('DOMContentLoaded', () => {
             loadingText.innerHTML = `Conectando ao Player 2${'.'.repeat(dots)}`;
         }, 500); 
 
-
         setTimeout(() => {
-            clearInterval(loadingInterval); 
-            loadingText.innerHTML = "CARREGAMENTO COMPLETO.";
+            if (!startTime) { 
+                clearInterval(loadingInterval); 
+                loadingText.innerHTML = "CARREGAMENTO COMPLETO.";
 
-            
-            introButton.classList.remove('hidden-button');
-            introButton.style.opacity = 1; 
-            introButton.style.pointerEvents = 'auto'; 
-        }, 3000); // 
+                introButton.classList.remove('hidden-button');
+                introButton.style.opacity = 1; 
+                introButton.style.pointerEvents = 'auto'; 
+            }
+        }, 3000); 
+    }
+    
+
+    if (!checkExistingGame()) {
+        startLoadingEffect();
     }
 
-    function updateTimer() {
-        if (!startTime) return; 
-
-        const now = new Date();
-        const difference = now.getTime() - startTime.getTime(); 
-
-        const seconds = Math.floor(difference / 1000);
-        const minutes = Math.floor(seconds / 60);
-        const hours = Math.floor(minutes / 60);
-        const days = Math.floor(hours / 24);
-
-        const s = seconds % 60;
-        const m = minutes % 60;
-        const h = hours % 24;
-
-        timerDisplay.innerHTML = `
-            ${days} dias, 
-            ${h} horas, 
-            ${m} minutos, 
-            ${s} segundos
-        `;
-    }
-
-    
-    startLoadingEffect(); 
-
-    
     if (introButton) {
         introButton.addEventListener('click', startQuest);
     }
@@ -89,6 +99,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     if (backButton) {
-        backButton.addEventListener('click', returnToMenu);
+        backButton.addEventListener('click', () => {
+             
+             window.location.reload(); 
+        });
     }
 });
