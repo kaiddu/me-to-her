@@ -1,6 +1,8 @@
 
 body {
-    background-color: ##E6E6FA;
+
+    background-color: #E6E6FA; 
+    color: #6A5ACD; 
     font-family: 'Press Start 2P', cursive; 
     display: flex;
     justify-content: center;
@@ -15,7 +17,7 @@ body {
     width: 90%;
     max-width: 600px;
     border: 8px solid #9370DB; 
-    box-shadow: 0 0 15px rgba(147, 112, 219, 0.9); 
+    box-shadow: 0 0 15px rgba(147, 112, 219, 0.9);
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.9); 
     min-height: 400px;
@@ -56,39 +58,46 @@ p {
 .footer-text {
     font-size: 0.5rem;
     margin-top: 30px;
-    color: #B0C4DE; 
+    color: #B0C4DE;
 }
 
 
 .pixel-button {
     font-family: 'Press Start 2P', cursive;
-    background-color: #ADD8E6;
+    background-color: #ADD8E6; 
     color: #483D8B; 
     border: 4px solid #8A2BE2; 
     padding: 15px 30px;
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.1s;
-    box-shadow: 4px 4px 0 #6A5ACD; 
+    box-shadow: 4px 4px 0 #6A5ACD;
     outline: none;
     margin-top: 20px;
 }
 
 .pixel-button:hover {
-    background-color: #B0E0E6;
+    background-color: #B0E0E6; 
     box-shadow: 2px 2px 0 #6A5ACD;
 }
 
 .pixel-button:active {
-    background-color: #98FB98;
+    background-color: #98FB98; 
     box-shadow: none;
     transform: translate(2px, 2px);
 }
+
 
 .hidden-button {
     opacity: 0; 
     pointer-events: none;
 }
+
+
+#back-button {
+    display: none !important; 
+}
+
 
 #quest-box {
     border: 3px solid #DA70D6; 
@@ -114,10 +123,6 @@ p {
     color: #FF69B4; 
 }
 
-
-#back-button {
-    display: none !important; 
-    
 #qr-code-container {
     margin-top: 30px;
     padding: 10px;
@@ -126,11 +131,11 @@ p {
 }
 
 #qrcode-img {
-    width: 100%; 
-    max-width: 150px;
+    width: 100%;
+    max-width: 150px; 
     height: auto;
     border: 2px solid #9370DB; 
-    image-rendering: pixelated;
+    image-rendering: pixelated; 
 }
 
 .qr-text {
@@ -138,12 +143,6 @@ p {
     margin-top: 10px;
     color: #483D8B;
 }
-
-
-
-
-
-
 
 
 
