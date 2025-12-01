@@ -1,56 +1,98 @@
-@font-face {
-    font-family: 'Pixel';
-    src: url('https://fonts.cdnfonts.com/s/63304/PressStart2P-Regular.woff') format('woff');
-}
 
 body {
+    background-color: #F0F8FF; 
+    color: #6A5ACD; 
+    font-family: 'Pixel', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     margin: 0;
-    background: #0e0e0e url('https://img.freepik.com/free-vector/pixel-art-mystical-background_52683-87349.jpg?semt=ais_hybrid&w=740&q=80');
-    font-family: 'Pixel', monospace;
-    color: #fff;
     text-align: center;
-    padding: 30px;
 }
 
-.container {
-    max-width: 400px;
-    margin: auto;
-    background: #1a1a1a;
-    padding: 25px;
-    border: 4px solid #fff;
-    image-rendering: pixelated;
-    border-radius: 8px;
+
+#game-container {
+    width: 90%;
+    max-width: 600px;
+    border: 8px solid #9370DB; 
+    box-shadow: 0 0 15px rgba(147, 112, 219, 0.9); 
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.game-screen {
+    display: none;
+    padding: 20px;
+}
+
+.game-screen.active {
+    display: block;
+}
+
+.game-screen.hidden {
+    display: none;
 }
 
 h1 {
-    font-size: 18px;
+    font-size: 1.5rem;
     margin-bottom: 20px;
+    color: #FF69B4; 
+    text-shadow: 2px 2px 0 #DB7093; 
+}
+
+h2 {
+    font-size: 1rem;
+    color: #483D8B; 
+    margin-bottom: 30px;
 }
 
 p {
-    line-height: 1.6;
-    font-size: 13px;
+    margin-bottom: 15px;
+    line-height: 1.5;
 }
 
-.btn {
-    display: block;
-    padding: 12px;
-    margin: 12px 0;
-    background: #ff4d4d;
-    color: white;
-    text-decoration: none;
-    border: 3px solid #fff;
-    border-radius: 4px;
-    font-size: 14px;
-    transition: 0.15s;
+.footer-text {
+    font-size: 0.5rem;
+    margin-top: 30px;
+    color: #B0C4DE;
 }
 
-.btn:hover {
-    background: #ff2b2b;
-    transform: scale(1.05);
+
+.pixel-button {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #ADD8E6; 
+    color: #483D8B; 
+    border: 4px solid #8A2BE2; 
+    padding: 15px 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.1s;
+    box-shadow: 4px 4px 0 #6A5ACD; 
+    outline: none;
+    margin-top: 20px;
 }
 
-.pixel-heart {
-    width: 45px;
-    image-rendering: pixelated;
+.pixel-button:hover {
+    background-color: #B0E0E6; 
+    box-shadow: 2px 2px 0 #6A5ACD;
+}
+
+.pixel-button:active {
+    background-color: #98FB98;
+    box-shadow: none;
+    transform: translate(2px, 2px);
+}
+
+#message-box {
+    text-align: left;
+    border: 3px solid #DA70D6;
+    padding: 15px;
+    margin: 20px 0;
+    background-color: rgba(255, 250, 250, 0.95);
+    color: #483D8B; 
 }
